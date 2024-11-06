@@ -263,3 +263,15 @@ TEST(List, moved_list_is_empty_after_using_move_operator) {
 
 	EXPECT_EQ(l1.get_size(), 0);
 }
+
+TEST(List, check_task_10) {
+
+	List<int> l(3);
+	l[0] = 1;
+	l[1] = 2;
+	l[2] = 3;
+
+	l.task_10();
+
+	EXPECT_EQ(l[2], 1);
+}

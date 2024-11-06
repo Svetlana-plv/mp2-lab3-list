@@ -103,8 +103,7 @@ public:
 		return *this;
 	}
 
-	List(List&& other)
-	{
+	List(List&& other) {
 		this->first = other.first;
 		other.first = nullptr;
 		other.size=0;
@@ -193,5 +192,27 @@ public:
 			size--;
 		}
 		return Iterator(first);
+	}
+
+
+
+	void task_10() {
+
+		if (!first) std::cout<<"List is empty!" << std::endl;
+
+		Node* prev = nullptr;
+		Node* curr = first;
+		Node* next;
+
+
+		while (curr) {
+			next = curr->next;
+			curr->next = prev;
+			prev = curr;
+			curr = next;
+		}
+		first = prev;
+
+		(*this).print();
 	}
 };
